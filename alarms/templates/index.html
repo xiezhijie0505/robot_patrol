@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>巡逻报警记录</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>巡逻报警记录</h1>
+    <p class="sub">数据在开发板本地 · 本页通过 HTTP 查询</p>
+  </header>
+
+  <nav class="filters">
+    <a class="{{ 'active' if not current_type else '' }}" href="/">全部</a>
+    {% for t in types %}
+    <a class="{{ 'active' if current_type == t else '' }}" href="/?type={{ t }}">{{ t }}</a>
+    {% endfor %}
+    <a class="api" href="/api/alarms" target="_blank">JSON API</a>
+  </nav>
+
+  {% if not alarms %}
+  <p class="empty">暂无记录。可用 <code>python3 tools/seed_demo.py</code> 写入示例，或 POST <code>/api/alarms</code>。</p>
+  {% else %}
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>时间</th>
+        <th>类型</th>
+        <th>分数</th>
+        <th>图片</th>
+        <th>备注</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in alarms %}
+      <tr>
+        <td><a href="/alarms/{{ a.id }}">#{{ a.id }}</a></td>
+        <td>{{ a.created_at }}</td>
+        <td><span class="tag tag-{{ a.type }}">{{ a.type }}</span></td>
+        <td>{{ '%.2f'|format(a.score) if a.score is not none else '—' }}</td>
+        <td>
+          {% if a.image_url %}
+          <a href="{{ a.image_url }}" target="_blank">查看</a>
+          {% else %}—{% endif %}
+        </td>
+        <td class="note">{{ a.note or '—' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <footer>
+    <p>健康检查：<a href="/api/health">/api/health</a></p>
+  </footer>
+</body>
+</html>

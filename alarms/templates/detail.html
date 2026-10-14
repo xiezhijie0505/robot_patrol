@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>报警 #{{ alarm.id }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <p><a href="/">← 返回列表</a></p>
+    <h1>报警 #{{ alarm.id }}</h1>
+  </header>
+
+  <section class="detail">
+    <dl>
+      <dt>时间</dt><dd>{{ alarm.created_at }}</dd>
+      <dt>类型</dt><dd><span class="tag tag-{{ alarm.type }}">{{ alarm.type }}</span></dd>
+      <dt>分数</dt>
+      <dd>{{ '%.2f'|format(alarm.score) if alarm.score is not none else '—' }}</dd>
+      <dt>备注</dt><dd>{{ alarm.note or '—' }}</dd>
+    </dl>
+
+    {% if alarm.image_url %}
+    <figure>
+      <img src="{{ alarm.image_url }}" alt="alarm image">
+      <figcaption>{{ alarm.image_rel }}</figcaption>
+    </figure>
+    {% else %}
+    <p class="empty">本条无图片（例如纯烟雾报警）。</p>
+    {% endif %}
+  </section>
+</body>
+</html>

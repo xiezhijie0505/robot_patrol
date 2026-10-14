@@ -1,0 +1,43 @@
+# 构建 / IDE
+**/build/
+**/__pycache__/
+*.pyc
+.venv/
+venv/
+*.user
+*.suo
+*.opendb
+.vs/
+.idea/
+
+# Keil / STM32 编译产物（保留源码与工程文件）
+firmware/**/MDK-ARM/**/*.o
+firmware/**/MDK-ARM/**/*.d
+firmware/**/MDK-ARM/**/*.crf
+firmware/**/MDK-ARM/**/*.dep
+firmware/**/MDK-ARM/**/*.map
+firmware/**/MDK-ARM/**/*.htm
+firmware/**/MDK-ARM/**/*.lnp
+firmware/**/MDK-ARM/**/*.build_log.htm
+firmware/**/MDK-ARM/**/Exe/
+firmware/**/MDK-ARM/**/List/
+firmware/**/MDK-ARM/**/Obj/
+firmware/**/*.uvguix.*
+
+# 大体积二进制 / 模型（板端自行放置）
+streaming/bin/mediamtx
+streaming/bin/LICENSE
+*.tar.gz
+*.rknn
+*.onnx
+
+# 运行时数据
+alarms/data/*.db
+alarms/data/*.db-*
+alarms/data/images/*
+!alarms/data/images/.gitkeep
+
+# 系统杂项
+Thumbs.db
+.DS_Store
+*.log

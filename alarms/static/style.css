@@ -1,0 +1,102 @@
+:root {
+  --bg: #0f1419;
+  --panel: #1a222c;
+  --text: #e7ecf1;
+  --muted: #9aa7b5;
+  --line: #2a3542;
+  --accent: #3d8bfd;
+  --smoke: #e6a23c;
+  --stranger: #f56c6c;
+  --other: #909399;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 1.25rem 1.5rem 3rem;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.top h1 { margin: 0.2rem 0; font-size: 1.5rem; }
+.sub, footer, .empty { color: var(--muted); }
+code {
+  background: var(--panel);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.25rem;
+}
+.filters a {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  background: var(--panel);
+}
+.filters a.active {
+  border-color: var(--accent);
+  color: #fff;
+}
+.filters a.api { margin-left: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel);
+  border-radius: 8px;
+  overflow: hidden;
+}
+th, td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  font-size: 0.95rem;
+}
+th { color: var(--muted); font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+.note { max-width: 16rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #111;
+}
+.tag-smoke { background: var(--smoke); }
+.tag-stranger { background: var(--stranger); color: #fff; }
+.tag-other { background: var(--other); color: #fff; }
+
+.detail {
+  max-width: 720px;
+  background: var(--panel);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+.detail dl {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0.4rem 0.75rem;
+}
+.detail dt { color: var(--muted); }
+.detail dd { margin: 0; }
+.detail figure { margin: 1.25rem 0 0; }
+.detail img {
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+}
+.detail figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.4rem; }
+
+footer { margin-top: 2rem; font-size: 0.9rem; }

@@ -1,0 +1,5 @@
+models/*.rknn
+models/*.onnx
+build/
+*.o
+person_detect

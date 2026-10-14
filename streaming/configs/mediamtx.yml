@@ -1,0 +1,14 @@
+###############################################
+# MediaMTX — robot_patrol 板端 RTSP（精简配置）
+# 完整默认项见官方 mediamtx.yml；此处保留推流所需核心。
+# 板端路径示例：/root/robot_patrol/streaming/configs/mediamtx.yml
+###############################################
+
+# RTSP 监听（VLC: rtsp://<板子IP>:8554/cam）
+rtsp: yes
+rtspAddress: :8554
+
+# 路径：从本机 UDP 接收 GStreamer 送来的 MPEG-TS
+paths:
+  cam:
+    source: udp://127.0.0.1:5004

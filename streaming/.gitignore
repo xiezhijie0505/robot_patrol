@@ -1,0 +1,4 @@
+# 体积大的板端二进制默认不提交（需要可改用 Git LFS）
+bin/mediamtx
+bin/LICENSE
+*.tar.gz
