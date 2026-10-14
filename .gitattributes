@@ -1,0 +1,4 @@
+# 厂商 SDK / 第三方不计入 GitHub 语言统计
+firmware/stm32_chassis/Drivers/** linguist-vendored
+firmware/stm32_chassis/Middlewares/** linguist-vendored
+firmware/stm32_chassis/MDK-ARM/startup_*.s linguist-vendored
